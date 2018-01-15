@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="project001.itcore.it_talk">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:name=".model.SocketConnection"
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <!-- Splash Activity -->
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Main Activity -->
+        <activity
+            android:name=".activity.MainActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTask"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <!-- Chat Activity -->
+        <activity
+            android:name=".activity.ChatActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+
+        <!-- Service -->
+        <service
+            android:name=".Service.BackService"
+            android:exported="false"
+            android:launchMode= "singleInstance"></service>
+
+
+        <receiver
+            android:name=".Service.BootReceiver"
+            android:enabled="true"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+
+
+    </application>
+
+</manifest>
